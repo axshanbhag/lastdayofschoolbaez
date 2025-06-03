@@ -68,11 +68,11 @@
   <script>
     function lastDayOfSchool(teacher, student1, student2) {
       if (teacher === "Mr. Baez") {
-        if (student1 === "Arpita" && student2 === "Taneshka") {
+        if (student1 === "Arpita" && student2 === "Taneshka") or (student1 == "Taneshka" && student2 === "Arpita") {
           return "Sorry for talking too much in class!";
         }
       }
-      return "Thank you for everything!";
+      return "This website is not for you!";
     }
 
     function message1() {
@@ -82,14 +82,14 @@
       const student1 = document.getElementById("student1").value;
 
       let message = lastDayOfSchool(teacher, student1, student2) + "<br />";
-
-      if (emotion >= 3) {
-        message += `You should excuse ${student1} and ${student2} from the AP CSP EOC and give them a 1/1 on Unit Q3.`;
-      }
-
-      message += `<br /><br />Have a great summer! We have enjoyed having you for the past two years and have learned so much about computer science and coding. We appreciate all the time and effort you have put into teaching us. I hope you know that you have inspired us to continue working on computer science, inside and outside of the classroom. We will miss you next year, but we hope you have a great summer!`;
-
-      document.getElementById("output").innerHTML = message;
+      if (student1 === "Arpita" && student2 === "Taneshka") or (student1 == "Taneshka" && student2 === "Arpita") {
+        if (emotion >= 3) {
+          message += `You should excuse ${student1} and ${student2} from the AP CSP EOC and give them a 1/1 on Unit Q3.`;
+        }
+  
+        message += `<br /><br />Have a great summer! We have enjoyed having you for the past two years and have learned so much about computer science and coding. We appreciate all the time and effort you have put into teaching us. I hope you know that you have inspired us to continue working on computer science, inside and outside of the classroom. We will miss you next year, but we hope you have a great summer!`;
+  
+        document.getElementById("output").innerHTML = message;}
     }
   </script>
 </body>
