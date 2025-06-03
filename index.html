@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You, Mr. Baez!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #a3daff;
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 3rem;
+      color: #1a1a1a;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      text-align: center;
+    }
+    input, button {
+      padding: 0.7rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Thank You, Mr. Baez!</h1>
+    <p>How are you feeling on a scale of 1 (😢 doleful) to 5 (😄 rapturous)?</p>
+    <input type="number" id="emotion" min="1" max="5" />
+    <br />
+    <input type="text" id="teacher" placeholder="Name: Mr./Ms." />
+    <br />
+    <input type="text" id="student1" placeholder="Favorite Student #1" />
+    <br />
+    <input type="text" id="student2" placeholder="Favorite Student #2" />
+    <br />
+    <button onclick="message1()">Submit</button>
+    <div class="message" id="output"></div>
+  </div>
+
+  <script>
+    function lastDayOfSchool(teacher, student1, student2) {
+      if (teacher === "Mr. Baez") {
+        if (student1 === "Arpita" && student2 === "Taneshka") {
+          return "Sorry for talking too much in class!";
+        }
+      }
+      return "Thank you for everything!";
+    }
+
+    function message1() {
+      const emotion = parseInt(document.getElementById("emotion").value);
+      const teacher = document.getElementById("teacher").value;
+      const student2 = document.getElementById("student2").value;
+      const student1 = document.getElementById("student1").value;
+
+      let message = lastDayOfSchool(teacher, student1, student2) + "<br />";
+
+      if (emotion >= 3) {
+        message += `You should excuse ${student1} and ${student2} from the AP CSP EOC and give them a 1/1 on Unit Q3.`;
+      }
+
+      message += `<br /><br />Have a great summer! We have enjoyed having you for the past two years and have learned so much about computer science and coding. We appreciate all the time and effort you have put into teaching us. I hope you know that you have inspired us to continue working on computer science, inside and outside of the classroom. We will miss you next year, but we hope you have a great summer!`;
+
+      document.getElementById("output").innerHTML = message;
+    }
+  </script>
+</body>
+</html>
